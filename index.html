@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio | Kristel Inmobiliaria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <!-- base.css = estilos comunes · index.css = estilos solo de esta página -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <!-- HEADER: parte superior de la web, con el nav dentro -->
+    <header>
+      <nav>
+        <a class="marca" href="index.html">
+          <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#c8a24b"/><path d="M11 25 24 13l13 12v11h-8v-8h-10v8h-8z" fill="#0c2a43"/></svg>
+          <span class="marca-texto"><strong>Kristel</strong><small>Inmobiliaria · Pilcomayo</small></span>
+        </a>
+        <ul>
+          <li><a class="activo" href="index.html">Inicio</a></li><li><a href="semaforo.html">Semáforo</a></li><li><a href="solicitud.html">Solicitud</a></li>
+        </ul>
+        <ul>
+          <li><a href="ingreso.html">Acceso administrador</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="contenedor">
+      <!-- MAIN: contenido principal. SECTION agrupa los ARTICLE -->
+      <main>
+        <section>
+          <article class="hero">
+            <p class="sobre">Pilcomayo · Huancayo · Junín</p>
+            <h1>Compra tu terreno viendo la verdad completa.</h1>
+            <h4>En Kristel clasificamos la situación legal y de servicios de cada terreno con un semáforo de colores. Sin letra chica: te mostramos también sus limitaciones.</h4>
+            <a href="#terrenos"><button type="button" class="dorado">Ver terrenos</button></a>
+            <a href="semaforo.html"><button type="button" class="claro">Ver el semáforo de transparencia</button></a>
+            <ul class="datos">
+              <li><strong>3 colores</strong><p>Verde, amarillo y rojo</p></li>
+              <li><strong>5 rubros</strong><p>Revisados en cada terreno</p></li>
+              <li><strong>100%</strong><p>Transparencia, también en lo malo</p></li>
+              <li><strong>Pilcomayo</strong><p>Huancayo, Junín</p></li>
+            </ul>
+          </article>
+
+          <article id="semaforo-info">
+            <h1>Semáforo de Transparencia Legal-Técnica &amp; Servicios</h1>
+            <p>Un panel visual que clasifica la situación de cada terreno con un código de colores, para que cualquier comprador lo entienda al instante.</p>
+            <ul class="leyenda">
+              <li><span class="punto verde"></span><div><strong>Verde · Verificado</strong><br>Documento o servicio listo y comprobado.</div></li>
+              <li><span class="punto amarillo"></span><div><strong>Amarillo · En trámite</strong><br>Ya iniciado: mostramos expediente y plazo.</div></li>
+              <li><span class="punto rojo"></span><div><strong>Rojo · Pendiente</strong><br>Aún no resuelto: te lo decimos claramente.</div></li>
+            </ul>
+            <p><strong>Rubros que revisamos:</strong></p>
+            <ul class="rubros"><li>Titulación</li><li>Habilitación urbana</li><li>Agua</li><li>Luz</li><li>Desagüe</li></ul>
+            <a href="semaforo.html"><button type="button">Abrir dashboard de 1 página</button></a>
+          </article>
+
+          <article id="terrenos">
+            <h1>Terrenos disponibles</h1>
+            <p>Elige los que te interesen y solicita información. Pulsa "Ver detalle" para conocer expedientes, plazos, limitaciones y documentos.</p>
+            <div class="filtros">
+              <button type="button" class="claro activo filtro" data-cat="todos">Todos</button>
+              <button type="button" class="claro filtro" data-cat="verde">● Verificados</button>
+              <button type="button" class="claro filtro" data-cat="amarillo">● En trámite</button>
+              <button type="button" class="claro filtro" data-cat="rojo">● Pendientes</button>
+            </div>
+            <!-- Las tarjetas las dibuja index.js leyendo los terrenos guardados -->
+            <div id="catalogo" class="catalogo"></div>
+          </article>
+        </section>
+      </main>
+
+      <!-- ASIDE: contenido secundario -->
+      <aside>
+        <article>
+          <h1>Mi selección</h1>
+          <ul id="lista-seleccion" class="lista-sel"></ul>
+          <button type="button" id="btn-solicitar" class="dorado">Solicitar información</button>
+          <button type="button" id="btn-vaciar" class="claro">Vaciar selección</button>
+        </article>
+
+        <article>
+          <h1>¿Dónde estamos?</h1>
+          <p><strong>Chupaca - Pilcomayo/ Junin - Perú</strong></p>
+          <iframe title="Mapa de Pilcomayo, Huancayo" src="https://www.google.com/maps?q=9 de Diciembre,+Chupaca,+Peru&output=embed" loading="lazy"></iframe>
+        </article>
+
+        <article>
+          <h1>Atención al cliente</h1>
+          <p>Agenda una visita al terreno, una reunión en la oficina o una videollamada.</p>
+          <ul class="horarios">
+            <li>Lunes a viernes: 09:00–18:00</li>
+            <li>Sábados: 09:00–13:00</li>
+          </ul>
+        </article>
+      </aside>
+    </div>
+
+    <!-- Ventana con el detalle de un terreno (la llena index.js) -->
+    <dialog id="detalle"></dialog>
+
+    <!-- FOOTER: contenido terciario -->
+    <footer>
+      <article>
+        <a class="marca" href="index.html"><svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#c8a24b"/><path d="M11 25 24 13l13 12v11h-8v-8h-10v8h-8z" fill="#0c2a43"/></svg><span class="marca-texto"><strong>Kristel</strong><small>Inmobiliaria</small></span></a>
+        <p style="margin-top:12px">Terrenos con información clara: te mostramos el estado legal y de servicios de cada lote, con sus limitaciones incluidas.</p>
+      </article>
+      <article>
+        <h2>Horarios de atención</h2>
+        <p>Lunes a viernes: 09:00–18:00</p>
+        <p>Sábados: 09:00–13:00</p>
+        <p>Domingos y feriados: previa cita</p>
+      </article>
+      <article>
+        <h2>Ubicación</h2>
+        <p>Chupaca - Pilcomayo/ Junin - Perú</p>
+        <p>Jr.Señor de Muruhuay y Av. 9 de Diciembre,Chupaca - Perú</p>
+      </article>
+      <article>
+        <h2>Contacto</h2>
+        <p>Correo: qmagaly113@gmail.com</p>
+        <p>Teléfono / WhatsApp: 941-381-634</p>
+        <p>&copy; Kristel Inmobiliaria. Todos los derechos reservados.</p>
+      </article>
+    </footer>
+    <script src="js/datos.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel admin | Kristel Inmobiliaria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <!-- base.css = estilos comunes · admin.css = estilos solo de esta página -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <!-- HEADER: parte superior de la web, con el nav dentro -->
+    <header>
+      <nav>
+        <a class="marca" href="index.html">
+          <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#c8a24b"/><path d="M11 25 24 13l13 12v11h-8v-8h-10v8h-8z" fill="#0c2a43"/></svg>
+          <span class="marca-texto"><strong>Kristel</strong><small>Inmobiliaria · Pilcomayo</small></span>
+        </a>
+        <ul>
+          <li><a class="activo" href="admin.html">Panel admin</a></li><li><a href="index.html">Ver la web</a></li>
+        </ul>
+        <ul>
+          <li><button type="button" id="btn-salir" class="claro">Cerrar sesión</button></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="contenedor">
+      <main>
+        <section>
+          <article class="resumen">
+            <div class="dato"><span>Solicitudes recibidas</span><strong id="n-solicitudes">0</strong></div>
+            <div class="dato"><span>Solicitudes atendidas</span><strong id="n-atendidas">0</strong></div>
+            <div class="dato"><span>Terrenos publicados</span><strong id="n-terrenos">0</strong></div>
+            <div class="dato"><span>Totalmente verificados</span><strong id="n-verificados">0</strong></div>
+          </article>
+
+          <article>
+            <h1>Solicitudes de clientes</h1>
+            <div class="scroll">
+              <table>
+                <thead><tr><th>N°</th><th>Cliente</th><th>Terrenos</th><th>Atención</th><th>Documentos</th><th>Estado</th></tr></thead>
+                <tbody id="tabla-solicitudes"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <article>
+            <h1>Terrenos publicados</h1>
+            <div class="scroll">
+              <table>
+                <thead><tr><th>Terreno</th><th>Precio</th><th>Semáforo</th><th>Docs</th><th></th></tr></thead>
+                <tbody id="tabla-terrenos"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <article>
+            <h1>Semáforo de un terreno</h1>
+            <p>Cambia el color de cada rubro y anota el número de expediente y el plazo estimado. Se actualiza en la web al instante.</p>
+            <form id="form-semaforo">
+              <label for="sem-terreno">Terreno</label>
+              <select id="sem-terreno"></select>
+              <div id="filas-semaforo"></div>
+              <button type="submit" class="dorado">Guardar semáforo</button>
+            </form>
+          </article>
+
+          <article>
+            <h1>Documentos de los terrenos</h1>
+            <p>Sube el título, planos o constancias (PDF, JPG o PNG de hasta 1 MB). Los clientes podrán descargarlos desde el detalle del terreno.</p>
+            <form id="form-doc" class="fila-form">
+              <div><label for="doc-terreno">Terreno</label><select id="doc-terreno"></select></div>
+              <div><label for="doc-titulo">Tipo de documento</label>
+                <select id="doc-titulo">
+                  <option>Título de propiedad</option><option>Plano perimétrico</option>
+                  <option>Certificado de parámetros urbanísticos</option><option>Constancia de agua</option>
+                  <option>Constancia de luz</option><option>Constancia de desagüe</option><option>Otro</option>
+                </select></div>
+              <div style="grid-column:1/-1"><label for="doc-archivo">Archivo</label>
+                <input type="file" id="doc-archivo" accept=".pdf,.jpg,.jpeg,.png" required /></div>
+              <button type="submit" class="dorado">Subir documento</button>
+            </form>
+            <div class="scroll">
+              <table>
+                <thead><tr><th>Terreno</th><th>Documento</th><th></th></tr></thead>
+                <tbody id="tabla-docs"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <aside>
+        <article>
+          <h1>Añadir terreno</h1>
+          <p>El terreno aparecerá en la página principal con todo el semáforo en rojo, hasta que lo actualices.</p>
+          <form id="form-terreno">
+            <label for="t-nombre">Nombre del terreno</label>
+            <input type="text" id="t-nombre" required />
+            <label for="t-categoria">Tipo</label>
+            <select id="t-categoria"><option value="residencial">Residencial</option><option value="comercial">Comercial</option><option value="campestre">Campestre</option></select>
+            <label for="t-area">Área (m²)</label>
+            <input type="number" id="t-area" min="1" step="0.01" required />
+            <label for="t-precio">Precio (S/.)</label>
+            <input type="number" id="t-precio" min="1" step="0.01" required />
+            <label for="t-ubicacion">Ubicación</label>
+            <input type="text" id="t-ubicacion" value="Pilcomayo, Huancayo, Junín" required />
+            <label for="t-descripcion">Descripción</label>
+            <textarea id="t-descripcion" rows="3" required></textarea>
+            <label for="t-limitaciones">Limitaciones (sé transparente)</label>
+            <textarea id="t-limitaciones" rows="3" placeholder="Ej: no tiene desagüe aún"></textarea>
+            <label for="t-imagen">Nombre de la imagen</label>
+            <input type="text" id="t-imagen" placeholder="terreno5.jpg" />
+            <small>Guarda la foto en <b>assets/terrenos/</b> y escribe aquí su nombre exacto.</small>
+            <button type="submit">Guardar terreno</button>
+          </form>
+        </article>
+      </aside>
+    </div>
+
+    <!-- FOOTER: contenido terciario -->
+    <footer>
+      <article>
+        <a class="marca" href="index.html"><svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#c8a24b"/><path d="M11 25 24 13l13 12v11h-8v-8h-10v8h-8z" fill="#0c2a43"/></svg><span class="marca-texto"><strong>Kristel</strong><small>Inmobiliaria</small></span></a>
+        <p style="margin-top:12px">Terrenos con información clara: te mostramos el estado legal y de servicios de cada lote, con sus limitaciones incluidas.</p>
+      </article>
+      <article>
+        <h2>Horarios de atención</h2>
+        <p>Lunes a viernes: 09:00–18:00</p>
+        <p>Sábados: 09:00–13:00</p>
+        <p>Domingos y feriados: previa cita</p>
+      </article>
+      <article>
+        <h2>Ubicación</h2>
+        <p>Chupaca - Pilcomayo/ Junin - Perú</p>
+        <p>Jr.Señor de Muruhuay y Av. 9 de Diciembre,Chupaca - Perú</p>
+      </article>
+      <article>
+        <h2>Contacto</h2>
+        <p>Correo: qmagaly113@gmail.com</p>
+        <p>Teléfono / WhatsApp: 941-381-634</p>
+        <p>&copy; Kristel Inmobiliaria. Todos los derechos reservados.</p>
+      </article>
+    <script src="js/datos.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

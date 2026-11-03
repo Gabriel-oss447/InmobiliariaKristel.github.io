@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solicitud | Kristel Inmobiliaria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <!-- base.css = estilos comunes · solicitud.css = estilos solo de esta página -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/solicitud.css" />
+  </head>
+  <body>
+    <!-- HEADER: parte superior de la web, con el nav dentro -->
+    <header>
+      <nav>
+        <a class="marca" href="index.html">
+          <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#c8a24b"/><path d="M11 25 24 13l13 12v11h-8v-8h-10v8h-8z" fill="#0c2a43"/></svg>
+          <span class="marca-texto"><strong>Kristel</strong><small>Inmobiliaria · Pilcomayo</small></span>
+        </a>
+        <ul>
+          <li><a href="index.html">Inicio</a></li><li><a href="semaforo.html">Semáforo</a></li><li><a class="activo" href="solicitud.html">Solicitud</a></li>
+        </ul>
+        <ul>
+          <li><a href="ingreso.html">Acceso administrador</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="contenedor">
+      <main>
+        <section>
+          <!-- form="form-solicitud" en el botón del aside permite enviar este formulario desde allí -->
+          <form id="form-solicitud">
+            <article>
+              <h1>Solicita información</h1>
+              <p>Completa tus datos y elige los terrenos que te interesan. Te contactaremos para confirmar.</p>
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Ej: María Quispe" required />
+              <div class="dos">
+                <div><label for="dni">DNI</label>
+                  <input type="text" id="dni" name="dni" inputmode="numeric" pattern="[0-9]{8}" maxlength="8" placeholder="8 dígitos" title="Escribe 8 números" required /></div>
+                <div><label for="telefono">Teléfono / WhatsApp</label>
+                  <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" maxlength="9" placeholder="9 dígitos" title="Escribe 9 números" required /></div>
+              </div>
+              <label for="correo">Correo electrónico (opcional)</label>
+              <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" />
+            </article>
+
+            <article>
+              <h1>Terrenos de tu interés</h1>
+              <div id="lista-terrenos"></div>
+            </article>
+
+            <article>
+              <h1>¿Cómo quieres que te atendamos?</h1>
+              <div class="opciones">
+                <label class="opcion"><input type="radio" name="atencion" value="visita" required /> Visita al terreno</label>
+                <label class="opcion"><input type="radio" name="atencion" value="oficina" /> Reunión en oficina</label>
+                <label class="opcion"><input type="radio" name="atencion" value="video" /> Videollamada</label>
+              </div>
+              <!-- Solo aparece cuando eliges un tipo de atención -->
+              <div id="bloque-fecha" hidden>
+                <div class="dos">
+                  <div><label for="fecha">Fecha preferida</label><input type="date" id="fecha" name="fecha" /></div>
+                  <div><label for="franja">Horario</label>
+                    <select id="franja" name="franja"><option>Mañana (09:00–12:00)</option><option>Tarde (15:00–18:00)</option></select></div>
+                </div>
+                <label for="comentario">Comentario (opcional)</label>
+                <textarea id="comentario" name="comentario" rows="2" placeholder="Cuéntanos qué necesitas saber"></textarea>
+                <!-- Solo aparece si eliges "Reunión en oficina" -->
+                <p id="info-oficina" class="nota" hidden>Te esperamos en nuestra oficina de <strong>Pilcomayo, Huancayo, Junín</strong>.</p>
+              </div>
+            </article>
+
+            <!-- ===== DOCUMENTACIÓN: aquí se suben los documentos ===== -->
+            <article>
+              <h1>Sube tu documentación</h1>
+              <p>Adjunta lo que tengas a la mano para agilizar tu proceso (opcional): DNI por ambos lados, boleta o constancia de ingresos, voucher de pago o separación.</p>
+              <div class="subida">
+                <strong>Elige tus archivos</strong>
+                <input type="file" id="archivos" accept=".pdf,.jpg,.jpeg,.png" multiple />
+                <small>PDF, JPG o PNG · hasta 1 MB cada uno · máximo 5 documentos</small>
+              </div>
+              <p id="error-archivos" class="error-arch" hidden></p>
+              <ul id="lista-archivos" class="lista-archivos"></ul>
+              <label class="check"><input type="checkbox" required /> Autorizo el uso de mis datos y documentos para atender mi solicitud.</label>
+            </article>
+          </form>
+          <article id="confirmacion" class="confirmacion" hidden></article>
+        </section>
+      </main>
+
+      <aside>
+        <article class="resumen-caja">
+          <h1>Resumen</h1>
+          <p><strong>Terrenos elegidos</strong></p>
+          <ul id="resumen" class="lista-res"></ul>
+          <p>Documentos adjuntos: <strong id="n-docs">0</strong></p>
+          <button type="submit" form="form-solicitud" class="dorado">Enviar solicitud</button>
+        </article>
+      </aside>
+    </div>
+
+    <!-- FOOTER: contenido terciario -->
+    <footer>
+      <article>
+        <a class="marca" href="index.html"><svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#c8a24b"/><path d="M11 25 24 13l13 12v11h-8v-8h-10v8h-8z" fill="#0c2a43"/></svg><span class="marca-texto"><strong>Kristel</strong><small>Inmobiliaria</small></span></a>
+        <p style="margin-top:12px">Terrenos con información clara: te mostramos el estado legal y de servicios de cada lote, con sus limitaciones incluidas.</p>
+      </article>
+      <article>
+        <h2>Horarios de atención</h2>
+        <p>Lunes a viernes: 09:00–18:00</p>
+        <p>Sábados: 09:00–13:00</p>
+        <p>Domingos y feriados: previa cita</p>
+      </article>
+      <article>
+        <h2>Ubicación</h2>
+        <p>Chupaca - Pilcomayo/ Junin - Perú</p>
+        <p>Jr.Señor de Muruhuay y Av. 9 de Diciembre,Chupaca - Perú</p>
+      </article>
+      <article>
+        <h2>Contacto</h2>
+        <p>Correo: qmagaly113@gmail.com</p>
+        <p>Teléfono / WhatsApp: 941-381-634</p>
+        <p>&copy; Kristel Inmobiliaria. Todos los derechos reservados.</p>
+      </article>
+    </footer>
+    <script src="js/datos.js"></script>
+    <script src="js/solicitud.js"></script>
+  </body>
+</html>

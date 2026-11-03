@@ -1,0 +1,38 @@
+/* semaforo.css → estilos SOLO del dashboard de 1 página (pantalla e impresión) */
+.barra-dash { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:6px; }
+.fecha-dash { color:var(--gris); font-size:.9rem; }
+.scroll { overflow-x:auto; margin-top:14px; }
+.tabla-sem { width:100%; border-collapse:collapse; font-size:.92rem; min-width:640px; }
+.tabla-sem th { background:var(--marino); color:#fff; padding:10px 12px; text-align:center; font-weight:600; }
+.tabla-sem th:first-child, .tabla-sem td:first-child { text-align:left; }
+.tabla-sem td { padding:10px 12px; border-bottom:1px solid var(--crema); text-align:center; }
+.tabla-sem td:first-child small { display:block; color:var(--gris); }
+.celda { font-weight:600; font-size:.82rem; }
+.celda.verde { background:#e8f6ee; color:#17623a; }
+.celda.amarillo { background:#fff6dc; color:#7a5600; }
+.celda.rojo { background:#fdeaea; color:#8f2222; }
+.celda .punto { margin-right:5px; }
+
+.detalle-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-top:14px; }
+.exp-card { background:var(--arena); border-radius:14px; padding:14px 16px; }
+.exp-card h3 { font-size:1.05rem; margin-bottom:6px; }
+.exp-card ul { list-style:none; }
+.exp-card li { font-size:.88rem; padding:5px 0; border-bottom:1px dashed var(--crema); }
+.exp-card li:last-child { border-bottom:0; }
+.exp-card small { color:var(--gris); display:block; }
+
+.beneficios { list-style:none; display:grid; gap:10px; margin-top:10px; }
+.beneficios li { background:var(--arena); border-radius:12px; padding:10px 14px; font-size:.92rem; }
+.leyenda-v { list-style:none; display:grid; gap:10px; margin-top:10px; }
+.leyenda-v li { display:flex; gap:10px; align-items:center; }
+
+/* Al imprimir: solo el dashboard, en una página */
+@media print {
+  header, footer, .no-imprimir { display:none !important; }
+  body { background:#fff; font-size:11px; }
+  .contenedor { display:block; padding:0; max-width:none; }
+  main section, aside { gap:10px; }
+  main article, aside article { box-shadow:none; border:1px solid #ccc; padding:12px; margin-bottom:10px; break-inside:avoid; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .tabla-sem { min-width:0; }
+}

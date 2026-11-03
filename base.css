@@ -1,0 +1,87 @@
+/* ============================================================
+   base.css → estilos comunes de TODAS las páginas de Kristel:
+   colores, tipografía, header/nav, footer, botones, formularios,
+   etiquetas del semáforo y la estructura HTML5
+   (header → .contenedor[main + aside] → footer).
+   ============================================================ */
+
+:root {
+  /* Paleta inmobiliaria: azul marino (confianza) + dorado (calidad) + arena (calidez) */
+  --marino:#0c2a43;      /* header, footer y títulos fuertes */
+  --azul:#1d5a8c;        /* botones principales */
+  --dorado:#c8a24b;      /* detalles y botón destacado */
+  --dorado-osc:#a98532;
+  --arena:#f5f1e8;       /* fondo general */
+  --crema:#ebe3d1;       /* bordes y fondos suaves */
+  --texto:#1c2b3a;
+  --gris:#6b7a89;
+  /* Colores del SEMÁFORO */
+  --verde:#2e9e5b;       /* Verificado */
+  --amarillo:#e9b02b;    /* En trámite */
+  --rojo:#d94a4a;        /* Pendiente */
+  --sombra:0 10px 30px rgba(12,42,67,.10);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:"DM Sans","Segoe UI",sans-serif; background:var(--arena); color:var(--texto); line-height:1.6; }
+h1,h2,h3,h4,h5 { font-family:"Playfair Display",Georgia,serif; line-height:1.2; }
+h1 { font-size:clamp(1.7rem,3.2vw,2.4rem); margin-bottom:12px; }
+img { max-width:100%; }
+[hidden] { display:none !important; }
+.vacio { color:#8c97a3; font-style:italic; list-style:none; }
+
+/* ---------- HEADER + NAV ---------- */
+header { background:rgba(12,42,67,.96); backdrop-filter:blur(8px); position:sticky; top:0; z-index:20; box-shadow:var(--sombra); }
+nav { display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:16px; max-width:1300px; margin:0 auto; padding:10px 24px; }
+.marca { display:flex; align-items:center; gap:12px; }
+.logo { width:46px; height:46px; }
+.marca-texto { display:flex; flex-direction:column; line-height:1.1; }
+.marca-texto strong { font-family:"Playfair Display",serif; font-size:1.6rem; color:#fff; }
+.marca-texto small { color:var(--dorado); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; }
+nav ul { list-style:none; display:flex; justify-content:center; gap:6px; }
+nav a { display:block; padding:8px 18px; border-radius:999px; text-decoration:none; color:#dbe6f0; font-weight:500; transition:.2s; }
+nav a:hover, nav a.activo { background:var(--dorado); color:var(--marino); }
+nav a.marca { padding:0; background:none; }
+
+/* ---------- CONTENEDOR: main (principal) + aside (secundario) ---------- */
+.contenedor { display:grid; grid-template-columns:minmax(0,2fr) minmax(290px,1fr); gap:24px; align-items:start; max-width:1300px; margin:0 auto; padding:28px 24px; }
+main section, aside { display:flex; flex-direction:column; gap:24px; }
+main article, aside article { background:#fff; border-radius:20px; padding:28px; box-shadow:var(--sombra); border-top:4px solid var(--dorado); }
+aside article:nth-child(even) { border-top-color:var(--azul); }
+
+/* ---------- FOOTER ---------- */
+footer { background:var(--marino); color:#b9c8d6; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:32px; padding:48px max(24px,calc((100% - 1252px)/2)); }
+footer h2 { color:var(--dorado); font-size:1.1rem; margin-bottom:10px; }
+footer .marca-texto strong { font-size:1.4rem; }
+footer a { color:#fff; }
+
+/* ---------- BOTONES y FORMULARIOS ---------- */
+button { cursor:pointer; border:0; border-radius:999px; padding:10px 22px; background:var(--azul); color:#fff; font:600 .95rem "DM Sans",sans-serif; transition:.2s; }
+button:hover { background:var(--marino); transform:translateY(-2px); }
+button.dorado { background:var(--dorado); color:var(--marino); }
+button.dorado:hover { background:var(--dorado-osc); color:#fff; }
+button.claro { background:var(--crema); color:var(--marino); }
+button.claro:hover, button.claro.activo { background:var(--dorado); color:var(--marino); }
+label { display:block; font-weight:600; margin:14px 0 4px; }
+input, select, textarea { width:100%; padding:10px 14px; border:2px solid var(--crema); border-radius:12px; font:inherit; background:#fffdf9; color:var(--texto); }
+input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible { outline:3px solid var(--dorado); outline-offset:2px; }
+
+/* ---------- SEMÁFORO: punto y etiqueta (se usan en index, semáforo, solicitud y admin) ---------- */
+.punto { display:inline-block; width:14px; height:14px; border-radius:50%; background:#c4ccd4; vertical-align:middle; }
+.punto.verde { background:var(--verde); }
+.punto.amarillo { background:var(--amarillo); }
+.punto.rojo { background:var(--rojo); }
+.puntos { display:inline-flex; gap:5px; align-items:center; }
+.etiqueta { display:inline-flex; align-items:center; gap:6px; padding:3px 12px; border-radius:999px; font-size:.8rem; font-weight:700; white-space:nowrap; }
+.etiqueta::before { content:""; width:9px; height:9px; border-radius:50%; background:currentColor; }
+.etiqueta.verde { background:#dff3e6; color:#17623a; }
+.etiqueta.amarillo { background:#fdf0cc; color:#7a5600; }
+.etiqueta.rojo { background:#fbe0e0; color:#8f2222; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px) { .contenedor { grid-template-columns:1fr; } }
+@media (max-width:700px) {
+  nav { grid-template-columns:1fr; justify-items:center; }
+  nav ul { flex-wrap:wrap; }
+}

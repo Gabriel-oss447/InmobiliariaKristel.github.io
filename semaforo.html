@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semáforo de transparencia | Kristel Inmobiliaria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <!-- base.css = estilos comunes · semaforo.css = estilos solo de esta página -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/semaforo.css" />
+  </head>
+  <body>
+    <!-- HEADER: parte superior de la web, con el nav dentro -->
+    <header>
+      <nav>
+        <a class="marca" href="index.html">
+          <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#c8a24b"/><path d="M11 25 24 13l13 12v11h-8v-8h-10v8h-8z" fill="#0c2a43"/></svg>
+          <span class="marca-texto"><strong>Kristel</strong><small>Inmobiliaria · Pilcomayo</small></span>
+        </a>
+        <ul>
+          <li><a href="index.html">Inicio</a></li><li><a class="activo" href="semaforo.html">Semáforo</a></li><li><a href="solicitud.html">Solicitud</a></li>
+        </ul>
+        <ul>
+          <li><a href="ingreso.html">Acceso administrador</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="contenedor">
+      <main>
+        <section>
+          <article>
+            <div class="barra-dash">
+              <div><h1>Semáforo de Transparencia Legal-Técnica &amp; Servicios</h1><p class="fecha-dash" id="fecha"></p></div>
+              <button type="button" id="btn-imprimir" class="dorado no-imprimir">Imprimir / Guardar PDF</button>
+            </div>
+            <p>Estado de cada terreno por rubro. Una sola página, para ver en pantalla o llevar impresa.</p>
+            <div class="scroll">
+              <table class="tabla-sem">
+                <thead><tr><th>Terreno</th><th>Titulación</th><th>Habilitación urbana</th><th>Agua</th><th>Luz</th><th>Desagüe</th><th>Estado general</th></tr></thead>
+                <tbody id="tabla-semaforo"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <article>
+            <h1>Detalle: expedientes y plazos</h1>
+            <p>Para lo que aún no está verificado, mostramos el número de expediente y el plazo estimado.</p>
+            <div id="detalle-exp" class="detalle-grid"></div>
+          </article>
+        </section>
+      </main>
+
+      <aside>
+        <article>
+          <h1>Cómo leerlo</h1>
+          <ul class="leyenda-v">
+            <li><span class="punto verde"></span> <strong>Verde:</strong> Verificado</li>
+            <li><span class="punto amarillo"></span> <strong>Amarillo:</strong> En trámite</li>
+            <li><span class="punto rojo"></span> <strong>Rojo:</strong> Pendiente</li>
+          </ul>
+          <p style="margin-top:12px;font-size:.9rem">El estado general toma el color más urgente: si un rubro está en rojo, todo el terreno aparece en rojo.</p>
+        </article>
+        <article>
+          <h1>Por qué lo hacemos</h1>
+          <ul class="beneficios">
+            <li><strong>Lectura universal:</strong> traducimos la complejidad legal a un formato fácil de entender.</li>
+            <li><strong>Seguridad:</strong> eliminamos el temor a estafas mostrando el estado real del proyecto.</li>
+            <li><strong>Estandarización:</strong> todo el equipo comercial responde con la misma información.</li>
+            <li><strong>Venta por descarte de riesgo:</strong> exponemos las limitaciones para educar al comprador.</li>
+          </ul>
+        </article>
+      </aside>
+    </div>
+
+    <!-- FOOTER: contenido terciario -->
+    <footer>
+      <article>
+        <a class="marca" href="index.html"><svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#c8a24b"/><path d="M11 25 24 13l13 12v11h-8v-8h-10v8h-8z" fill="#0c2a43"/></svg><span class="marca-texto"><strong>Kristel</strong><small>Inmobiliaria</small></span></a>
+        <p style="margin-top:12px">Terrenos con información clara: te mostramos el estado legal y de servicios de cada lote, con sus limitaciones incluidas.</p>
+      </article>
+      <article>
+        <h2>Horarios de atención</h2>
+        <p>Lunes a viernes: 09:00–18:00</p>
+        <p>Sábados: 09:00–13:00</p>
+        <p>Domingos y feriados: previa cita</p>
+      </article>
+      <article>
+        <h2>Ubicación</h2>
+        <p>Chupaca - Pilcomayo/ Junin - Perú</p>
+        <p>Jr.Señor de Muruhuay y Av. 9 de Diciembre,Chupaca - Perú</p>
+      </article>
+      <article>
+        <h2>Contacto</h2>
+        <p>Correo: qmagaly113@gmail.com</p>
+        <p>Teléfono / WhatsApp: 941-381-634</p>
+        <p>&copy; Kristel Inmobiliaria. Todos los derechos reservados.</p>
+      </article>
+    </footer>
+    <script src="js/datos.js"></script>
+    <script src="js/semaforo.js"></script>
+  </body>
+</html>

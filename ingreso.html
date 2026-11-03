@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ingreso | Kristel Inmobiliaria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <!-- base.css = estilos comunes · ingreso.css = estilos solo de esta página -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/ingreso.css" />
+  </head>
+  <body>
+    <!-- HEADER: parte superior de la web, con el nav dentro -->
+    <header>
+      <nav>
+        <a class="marca" href="index.html">
+          <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#c8a24b"/><path d="M11 25 24 13l13 12v11h-8v-8h-10v8h-8z" fill="#0c2a43"/></svg>
+          <span class="marca-texto"><strong>Kristel</strong><small>Inmobiliaria · Pilcomayo</small></span>
+        </a>
+        <ul>
+          <li><a href="index.html">Inicio</a></li><li><a href="semaforo.html">Semáforo</a></li><li><a href="solicitud.html">Solicitud</a></li>
+        </ul>
+        <ul>
+          <li><a class="activo" href="ingreso.html">Acceso administrador</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="contenedor">
+      <main>
+        <section>
+          <article class="login">
+            <h1>Acceso del administrador</h1>
+            <p>Ingresa tu usuario y contraseña para entrar al panel de solicitudes, terrenos y semáforo.</p>
+            <form id="form-login">
+              <label for="correo">Usuario</label>
+              <input type="text" id="correo" autocomplete="username" required />
+              <label for="clave">Contraseña</label>
+              <input type="password" id="clave" autocomplete="current-password" required />
+              <p id="error" class="error" hidden>Usuario o contraseña incorrectos. Revisa los datos e inténtalo de nuevo.</p>
+              <button type="submit">Ingresar al panel</button>
+            </form>
+          </article>
+        </section>
+      </main>
+      <aside>
+        <article>
+          <h1>Zona del administrador</h1>
+          <p>Desde el panel podrás ver las solicitudes y sus documentos, actualizar el semáforo de cada terreno y publicar nuevos terrenos.</p>
+        </article>
+      </aside>
+    </div>
+
+    <!-- FOOTER: contenido terciario -->
+    <footer>
+      <article>
+        <a class="marca" href="index.html"><svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#c8a24b"/><path d="M11 25 24 13l13 12v11h-8v-8h-10v8h-8z" fill="#0c2a43"/></svg><span class="marca-texto"><strong>Kristel</strong><small>Inmobiliaria</small></span></a>
+        <p style="margin-top:12px">Terrenos con información clara: te mostramos el estado legal y de servicios de cada lote, con sus limitaciones incluidas.</p>
+      </article>
+      <article>
+        <h2>Horarios de atención</h2>
+        <p>Lunes a viernes: 09:00–18:00</p>
+        <p>Sábados: 09:00–13:00</p>
+        <p>Domingos y feriados: previa cita</p>
+      </article>
+      <article>
+        <h2>Ubicación</h2>
+        <p>Chupaca - Pilcomayo/ Junin - Perú</p>
+        <p>Jr.Señor de Muruhuay y Av. 9 de Diciembre,Chupaca - Perú</p>
+      </article>
+      <article>
+        <h2>Contacto</h2>
+        <p>Correo: qmagaly113@gmail.com</p>
+        <p>Teléfono / WhatsApp: 941-381-634</p>
+        <p>&copy; Kristel Inmobiliaria. Todos los derechos reservados.</p>
+      </article>
+    </footer>
+    <script src="js/datos.js"></script>
+    <script src="js/ingreso.js"></script>
+  </body>
+</html>

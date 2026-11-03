@@ -1,0 +1,27 @@
+/* admin.css → estilos SOLO del panel de administración */
+.resumen { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:16px; background:var(--marino) !important; }
+.dato { background:rgba(255,255,255,.09); border-radius:14px; padding:18px; color:#cfdce8; }
+.dato span { display:block; font-size:.9rem; }
+.dato strong { font-family:"Playfair Display",serif; font-size:2rem; color:#fff; }
+
+.scroll { overflow-x:auto; margin-top:14px; }
+table { width:100%; border-collapse:collapse; font-size:.92rem; }
+th { text-align:left; background:var(--arena); padding:10px 12px; font-weight:600; }
+td { padding:10px 12px; border-bottom:1px solid var(--crema); vertical-align:top; }
+tbody tr:hover { background:#fffbf1; }
+td small { color:var(--gris); display:block; }
+td a { color:var(--azul); font-weight:600; display:block; }
+td button { padding:5px 14px; margin-top:6px; font-size:.85rem; }
+.estado { display:inline-block; padding:3px 12px; border-radius:999px; font-size:.85rem; font-weight:600; }
+.estado.pendiente { background:#fdf0cc; color:#7a5600; }
+.estado.atendida { background:#dff3e6; color:#17623a; }
+button.peligro { background:transparent; color:var(--rojo); border:1px solid var(--rojo); }
+button.peligro:hover { background:var(--rojo); color:#fff; }
+
+.fila-form { display:grid; grid-template-columns:1fr 1fr auto; gap:14px; align-items:end; }
+.fila-form button { margin-bottom:2px; }
+.fila-sem { display:grid; grid-template-columns:130px 150px 1fr 1fr; gap:10px; align-items:center; padding:8px 0; border-bottom:1px dashed var(--crema); }
+article > form > button, aside form button { width:100%; margin-top:18px; }
+aside small { display:block; margin-top:4px; color:var(--gris); }
+aside article { position:sticky; top:100px; }
+@media (max-width:700px) { .fila-form, .fila-sem { grid-template-columns:1fr; } }
